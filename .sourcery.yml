@@ -1,0 +1,7 @@
+sources:
+        - Bitcoin
+
+templates:
+        - Bitcoin/Templates
+
+output: Bitcoin/Generated

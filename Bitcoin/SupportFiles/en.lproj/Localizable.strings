@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Bitcoin
+
+  Created by Fausto Castagnari Marouvo on 10/20/20.
+  
+*/
+
+/* HomeViewController */
+"Home.Label.Title" = "Preço médio de mercado em dólares americanos nas principais bolsas de bitcoin";
+"Home.LastQuoteView.Label.LastQuote" = "Última cotação";
+"Home.LastQuoteView.Label.UpdatedAt" = "atualizado em: %@";
+"Home.LastQuoteView.Label.Value" = "$ %@";
+/* HomeViewController */
