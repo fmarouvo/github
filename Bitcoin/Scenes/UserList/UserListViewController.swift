@@ -12,7 +12,6 @@ class UserListViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let tableView = UITableView()
-    private let titleLabel = UILabel()
 
     private let cellReuseIdentifier = "userListCell"
 
@@ -39,13 +38,12 @@ class UserListViewController: UIViewController {
     private func prepareViews() {
         view.addSubview(contentView)
         //scrollView.addSubview(contentView)
-        titleLabel.text = "Usuários"
-        contentView.addSubview(titleLabel)
+        navigationItem.title = "User List"
         contentView.addSubview(tableView)
 
         //scrollView.backgroundColor = .red
-        contentView.backgroundColor = .blue
-        tableView.backgroundColor = .lightGray
+        contentView.backgroundColor = UIColor(rgb: 0xf9f9f9)
+        tableView.backgroundColor = .white
     }
 
     private func setupConstraints() {
@@ -61,12 +59,8 @@ class UserListViewController: UIViewController {
         contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive.toggle()
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 80).isActive.toggle()
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive.toggle()
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 20).isActive.toggle()
+        tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100).isActive.toggle()
         tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive.toggle()
         tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive.toggle()
         tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive.toggle()
