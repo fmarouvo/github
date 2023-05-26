@@ -90,3 +90,9 @@ return fetchMarketPriceVariationUseCaseClosure.map({ $0() }) ?? fetchMarketPrice
 }
 
 }
+class UserDetailsInteractableMock: UserDetailsInteractable {
+
+}
+class UserListInteractableMock: UserListInteractable {
+
+}
