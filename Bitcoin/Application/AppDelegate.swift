@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func prepareWindow(application: UIApplication) {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = HomeBuilder().build()
+        window.rootViewController = UserListBuilder().build()
 
         self.window = window
         self.application = application
