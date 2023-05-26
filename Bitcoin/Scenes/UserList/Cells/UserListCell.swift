@@ -28,12 +28,14 @@ final class UserListCell: UITableViewCell {
 
     private func setupConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive.toggle()
+        label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive.toggle()
+        label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive.toggle()
         label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive.toggle()
     }
 
     func setupCell(text: String) {
         backgroundColor = .clear
         label.text = text
+        label.textColor = .black
     }
 }

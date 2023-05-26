@@ -23,4 +23,3 @@ final class UserListBuilder: Builder, UserListBuildable {
         return viewController
     }
 }
-

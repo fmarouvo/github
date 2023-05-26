@@ -1,5 +1,5 @@
 //
-//  UserListViewController.swift
+//  UserDetailsViewController.swift
 //  Bitcoin
 //
 //  Created by Fausto Marouvo on 26/05/23.
@@ -7,20 +7,16 @@
 
 import UIKit
 
-class UserListViewController: UIViewController {
+class UserDetailsViewController: UIViewController {
 
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let tableView = UITableView()
     private let titleLabel = UILabel()
 
-    private let cellReuseIdentifier = "userListCell"
+    private let viewModel: UserDetailsViewModelType
 
-    private let viewModel: UserListViewModelType
-
-    private let names = ["Name One", "Name Two", "Name Three", "Name Four", "Name Five", "Name Six", "Name Seven", "Name Eight", "Name Nine", "Name Ten"]
-
-    init(withViewModel viewModel: UserListViewModelType) {
+    init(withViewModel viewModel: UserDetailsViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,17 +29,14 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
         prepareViews()
         setupConstraints()
-        prepareTableView()
     }
 
     private func prepareViews() {
         view.addSubview(contentView)
-        //scrollView.addSubview(contentView)
-        titleLabel.text = "Usuários"
+        titleLabel.text = "Usuário XXXXXXXX"
         contentView.addSubview(titleLabel)
         contentView.addSubview(tableView)
 
-        //scrollView.backgroundColor = .red
         contentView.backgroundColor = .blue
         tableView.backgroundColor = .lightGray
     }
@@ -71,32 +64,5 @@ class UserListViewController: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive.toggle()
         tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive.toggle()
 
-    }
-
-    private func prepareTableView() {
-        tableView.register(UserListCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-}
-
-extension UserListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-        navigationController?.pushViewController(UserDetailsBuilder().build(), animated: true)
-    }
-}
-
-extension UserListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        names.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: UserListCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? UserListCell {
-            cell.setupCell(text: names[indexPath.row])
-            return cell
-        }
-        return UITableViewCell()
     }
 }

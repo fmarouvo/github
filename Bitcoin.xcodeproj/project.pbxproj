@@ -37,6 +37,10 @@
 		98BDEC072A212921006FD4CA /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC062A212921006FD4CA /* UserListInteractor.swift */; };
 		98BDEC092A212962006FD4CA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC082A212962006FD4CA /* UserListViewModel.swift */; };
 		98BDEC0C2A212C0F006FD4CA /* UserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC0B2A212C0F006FD4CA /* UserListCell.swift */; };
+		98BDEC0F2A21422C006FD4CA /* UserDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC0E2A21422C006FD4CA /* UserDetailsBuilder.swift */; };
+		98BDEC112A214253006FD4CA /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC102A214253006FD4CA /* UserDetailsViewController.swift */; };
+		98BDEC132A21425F006FD4CA /* UserDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC122A21425F006FD4CA /* UserDetailsViewModel.swift */; };
+		98BDEC152A21426B006FD4CA /* UserDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC142A21426B006FD4CA /* UserDetailsInteractor.swift */; };
 		B4AA85F1EC8C4389C21DBA0C /* Pods_Bitcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E825D128972FEB93F58EDB /* Pods_Bitcoin.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +92,10 @@
 		98BDEC062A212921006FD4CA /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 		98BDEC082A212962006FD4CA /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		98BDEC0B2A212C0F006FD4CA /* UserListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListCell.swift; sourceTree = "<group>"; };
+		98BDEC0E2A21422C006FD4CA /* UserDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsBuilder.swift; sourceTree = "<group>"; };
+		98BDEC102A214253006FD4CA /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
+		98BDEC122A21425F006FD4CA /* UserDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewModel.swift; sourceTree = "<group>"; };
+		98BDEC142A21426B006FD4CA /* UserDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsInteractor.swift; sourceTree = "<group>"; };
 		994EBC9A5D19DB79BF4F2EF6 /* Pods-BitcoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinTests.release.xcconfig"; path = "Target Support Files/Pods-BitcoinTests/Pods-BitcoinTests.release.xcconfig"; sourceTree = "<group>"; };
 		DFFDB8EABA14040F943F5E16 /* Pods-Bitcoin-Blockchain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bitcoin-Blockchain.release.xcconfig"; path = "Target Support Files/Pods-Bitcoin-Blockchain/Pods-Bitcoin-Blockchain.release.xcconfig"; sourceTree = "<group>"; };
 		E0E7EF4D8115FA4905797680 /* Pods_BitcoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BitcoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +226,7 @@
 		8BD31274253D2DD000670AC5 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				98BDEC0D2A214213006FD4CA /* UserDetails */,
 				98BDEC012A211FEF006FD4CA /* UserList */,
 				8BD31275253D2DD000670AC5 /* Home */,
 			);
@@ -319,6 +328,17 @@
 				98BDEC0B2A212C0F006FD4CA /* UserListCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		98BDEC0D2A214213006FD4CA /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				98BDEC0E2A21422C006FD4CA /* UserDetailsBuilder.swift */,
+				98BDEC102A214253006FD4CA /* UserDetailsViewController.swift */,
+				98BDEC122A21425F006FD4CA /* UserDetailsViewModel.swift */,
+				98BDEC142A21426B006FD4CA /* UserDetailsInteractor.swift */,
+			);
+			path = UserDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +560,7 @@
 				8BA64F93253E8CCF0001E473 /* DateValueFormatter.swift in Sources */,
 				8BD31260253D2D8100670AC5 /* AppDelegate.swift in Sources */,
 				8BD3128E253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift in Sources */,
+				98BDEC112A214253006FD4CA /* UserDetailsViewController.swift in Sources */,
 				8BA64FA5253E992F0001E473 /* HomeViewController.swift in Sources */,
 				8BD3127F253D2DD000670AC5 /* HomeBuilder.swift in Sources */,
 				8BD3127C253D2DD000670AC5 /* HomeInteractor.swift in Sources */,
@@ -549,7 +570,9 @@
 				98BDEC072A212921006FD4CA /* UserListInteractor.swift in Sources */,
 				8BA33FDE253E55EF001CB209 /* LocalRepository.swift in Sources */,
 				8BD3128D253D2DE000670AC5 /* MarketPriceResponse.swift in Sources */,
+				98BDEC152A21426B006FD4CA /* UserDetailsInteractor.swift in Sources */,
 				8BA64FC9253EB78D0001E473 /* String+Localizable.swift in Sources */,
+				98BDEC132A21425F006FD4CA /* UserDetailsViewModel.swift in Sources */,
 				98BDEC032A212006006FD4CA /* UserListViewController.swift in Sources */,
 				98BDEC0C2A212C0F006FD4CA /* UserListCell.swift in Sources */,
 				8BA64FCC253EB9160001E473 /* DateFormatter+String.swift in Sources */,
@@ -558,6 +581,7 @@
 				8BA33FE1253E5615001CB209 /* ApiClient.swift in Sources */,
 				98BDEC052A2128C4006FD4CA /* UserListBuilder.swift in Sources */,
 				8B7A82AD253FBAD5009C7188 /* AutoMockable.generated.swift in Sources */,
+				98BDEC0F2A21422C006FD4CA /* UserDetailsBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
