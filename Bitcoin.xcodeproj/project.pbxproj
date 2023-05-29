@@ -32,6 +32,7 @@
 		8BD3128F253D2DE000670AC5 /* FetchMarketPriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31287253D2DE000670AC5 /* FetchMarketPriceUseCase.swift */; };
 		8BD31290253D2DE000670AC5 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31289253D2DE000670AC5 /* Double+String.swift */; };
 		8BD31291253D2DE000670AC5 /* BitcoinRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD3128B253D2DE000670AC5 /* BitcoinRouter.swift */; };
+		982C8BE62A24F67C006D3096 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BE52A24F67C006D3096 /* Constants.swift */; };
 		98BDEC032A212006006FD4CA /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC022A212006006FD4CA /* UserListViewController.swift */; };
 		98BDEC052A2128C4006FD4CA /* UserListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC042A2128C4006FD4CA /* UserListBuilder.swift */; };
 		98BDEC072A212921006FD4CA /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC062A212921006FD4CA /* UserListInteractor.swift */; };
@@ -89,6 +90,7 @@
 		8BD31287253D2DE000670AC5 /* FetchMarketPriceUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMarketPriceUseCase.swift; sourceTree = "<group>"; };
 		8BD31289253D2DE000670AC5 /* Double+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
 		8BD3128B253D2DE000670AC5 /* BitcoinRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinRouter.swift; sourceTree = "<group>"; };
+		982C8BE52A24F67C006D3096 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		98BDEC022A212006006FD4CA /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		98BDEC042A2128C4006FD4CA /* UserListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListBuilder.swift; sourceTree = "<group>"; };
 		98BDEC062A212921006FD4CA /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				8BD3125F253D2D8100670AC5 /* AppDelegate.swift */,
+				982C8BE52A24F67C006D3096 /* Constants.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 				8BA64F93253E8CCF0001E473 /* DateValueFormatter.swift in Sources */,
 				8BD31260253D2D8100670AC5 /* AppDelegate.swift in Sources */,
 				8BD3128E253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift in Sources */,
+				982C8BE62A24F67C006D3096 /* Constants.swift in Sources */,
 				98BDEC112A214253006FD4CA /* UserDetailsViewController.swift in Sources */,
 				98BDEC1A2A215AB2006FD4CA /* UIColor+Extensions.swift in Sources */,
 				8BA64FA5253E992F0001E473 /* HomeViewController.swift in Sources */,
@@ -795,7 +799,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QWTPL888F5;
 				INFOPLIST_FILE = Bitcoin/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -818,7 +822,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QWTPL888F5;
 				INFOPLIST_FILE = Bitcoin/SupportFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
