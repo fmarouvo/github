@@ -55,7 +55,7 @@ class UserListViewController: UIViewController {
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.top).isActive.toggle()
+        tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.xBig).isActive.toggle()
         tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive.toggle()
         tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive.toggle()
         tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive.toggle()
