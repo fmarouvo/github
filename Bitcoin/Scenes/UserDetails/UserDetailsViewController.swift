@@ -9,11 +9,10 @@ import UIKit
 
 class UserDetailsViewController: UIViewController {
 
-    private let scrollView = UIScrollView()
+    //MARK: - Private variables
     private let contentView = UIView()
     private let tableView = UITableView()
     private let imageView = UIImageView()
-    private let titleLabel = UILabel()
     private let nameLabel = UILabel()
     private let companyLabel = UILabel()
     private let locationLabel = UILabel()
@@ -24,6 +23,7 @@ class UserDetailsViewController: UIViewController {
 
     private let repositories = ["Name One", "Name Two", "Name Three", "Name Four", "Name Five", "Name Six", "Name Seven", "Name Eight", "Name Nine", "Name Ten"]
 
+    //MARK: - Initialization
     init(withViewModel viewModel: UserDetailsViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -40,33 +40,27 @@ class UserDetailsViewController: UIViewController {
         prepareTableView()
     }
 
+    //MARK: - Private Methods
     private func prepareViews() {
         view.addSubview(contentView)
         navigationItem.title = "User Profile"
         nameLabel.text = "User: Name user"
         companyLabel.text = "Company: Company User"
         locationLabel.text = "Location: Location, Lc"
-        titleLabel.text = "Repositories:"
         contentView.addSubview(imageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(companyLabel)
         contentView.addSubview(locationLabel)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(tableView)
 
-        contentView.backgroundColor = UIColor(rgb: 0xf9f9f9)
+        contentView.backgroundColor = Constants.Color.topBackground
+
         tableView.backgroundColor = .white
 
-        imageView.image = UIImage(named: "logoLaunchScreen")
+        imageView.image = Constants.Image.logoGitHub
     }
 
     private func setupConstraints() {
-        /*scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive.toggle()
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive.toggle()
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive.toggle()
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()*/
-
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive.toggle()
         contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive.toggle()
@@ -74,29 +68,25 @@ class UserDetailsViewController: UIViewController {
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120).isActive.toggle()
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive.toggle()
-        imageView.widthAnchor.constraint(equalToConstant: 64).isActive.toggle()
-        imageView.heightAnchor.constraint(equalToConstant: 64).isActive.toggle()
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.top).isActive.toggle()
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Size.medium).isActive.toggle()
+        imageView.widthAnchor.constraint(equalToConstant: Constants.Size.big).isActive.toggle()
+        imageView.heightAnchor.constraint(equalToConstant: Constants.Size.big).isActive.toggle()
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 120).isActive.toggle()
-        nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20).isActive.toggle()
+        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.top).isActive.toggle()
+        nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Constants.Size.medium).isActive.toggle()
 
         companyLabel.translatesAutoresizingMaskIntoConstraints = false
-        companyLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4).isActive.toggle()
-        companyLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20).isActive.toggle()
+        companyLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Constants.Size.small).isActive.toggle()
+        companyLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Constants.Size.medium).isActive.toggle()
 
         locationLabel.translatesAutoresizingMaskIntoConstraints = false
-        locationLabel.topAnchor.constraint(equalTo: companyLabel.bottomAnchor, constant: 4).isActive.toggle()
-        locationLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 20).isActive.toggle()
-
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 16).isActive.toggle()
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20).isActive.toggle()
+        locationLabel.topAnchor.constraint(equalTo: companyLabel.bottomAnchor, constant: Constants.Size.small).isActive.toggle()
+        locationLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Constants.Size.medium).isActive.toggle()
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive.toggle()
+        tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.Size.medium).isActive.toggle()
         tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive.toggle()
         tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive.toggle()
         tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive.toggle()
@@ -110,6 +100,7 @@ class UserDetailsViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension UserDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
@@ -117,7 +108,12 @@ extension UserDetailsViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension UserDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Repositories"
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         repositories.count
     }

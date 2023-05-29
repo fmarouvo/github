@@ -9,6 +9,7 @@ import UIKit
 
 class UserListViewController: UIViewController {
 
+    //MARK: - Private variables
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let tableView = UITableView()
@@ -19,6 +20,7 @@ class UserListViewController: UIViewController {
 
     private let names = ["Name One", "Name Two", "Name Three", "Name Four", "Name Five", "Name Six", "Name Seven", "Name Eight", "Name Nine", "Name Ten"]
 
+    //MARK: - Initialization
     init(withViewModel viewModel: UserListViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -35,24 +37,17 @@ class UserListViewController: UIViewController {
         prepareTableView()
     }
 
+    //MARK: - Private Methods
     private func prepareViews() {
         view.addSubview(contentView)
-        //scrollView.addSubview(contentView)
         navigationItem.title = "User List"
         contentView.addSubview(tableView)
 
-        //scrollView.backgroundColor = .red
-        contentView.backgroundColor = UIColor(rgb: 0xf9f9f9)
+        contentView.backgroundColor = Constants.Color.topBackground
         tableView.backgroundColor = .white
     }
 
     private func setupConstraints() {
-        /*scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive.toggle()
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive.toggle()
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive.toggle()
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()*/
-
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: view.topAnchor).isActive.toggle()
         contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive.toggle()
@@ -60,7 +55,7 @@ class UserListViewController: UIViewController {
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100).isActive.toggle()
+        tableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.top).isActive.toggle()
         tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive.toggle()
         tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive.toggle()
         tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive.toggle()
@@ -74,6 +69,7 @@ class UserListViewController: UIViewController {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension UserListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
@@ -81,6 +77,7 @@ extension UserListViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension UserListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         names.count
