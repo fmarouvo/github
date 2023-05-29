@@ -68,13 +68,13 @@ class UserDetailsViewController: UIViewController {
         contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive.toggle()
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.top).isActive.toggle()
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.xBig).isActive.toggle()
         imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.Size.medium).isActive.toggle()
         imageView.widthAnchor.constraint(equalToConstant: Constants.Size.big).isActive.toggle()
         imageView.heightAnchor.constraint(equalToConstant: Constants.Size.big).isActive.toggle()
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.top).isActive.toggle()
+        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.Size.xBig).isActive.toggle()
         nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: Constants.Size.medium).isActive.toggle()
 
         companyLabel.translatesAutoresizingMaskIntoConstraints = false

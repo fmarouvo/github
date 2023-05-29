@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func prepareWindow(application: UIApplication) {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navigationController = UINavigationController(rootViewController: UserListBuilder().build())
-        window.rootViewController = navigationController
+        window.rootViewController = LaunchScreenViewController()
         self.window = window
         self.application = application
         window.makeKeyAndVisible()
     }
     
-    
-
-
+    class func sharedInstance() -> AppDelegate{
+        return UIApplication.shared.delegate as! AppDelegate
+    }
 }
 

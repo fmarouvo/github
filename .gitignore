@@ -1,0 +1,9 @@
+# Various settings
+#
+xcuserdata/
+
+# CocoaPods
+#
+
+Pods/
+Podfile.lock
