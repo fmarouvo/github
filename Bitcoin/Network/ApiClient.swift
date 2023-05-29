@@ -52,7 +52,7 @@ protocol RouterType: URLRequestConvertible {
 
 extension RouterType {
     var baseURL: URL {
-        return URL(string: "https://api.blockchain.info/")!
+        return URL(string: "https://api.github.com/")!
     }
     
     var headers: HTTPHeaders? {

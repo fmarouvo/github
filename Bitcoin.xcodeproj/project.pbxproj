@@ -20,15 +20,19 @@
 		8BA64FD0253EBA3D0001E473 /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA64FCF253EBA3D0001E473 /* Date+String.swift */; };
 		8BD31260253D2D8100670AC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD3125F253D2D8100670AC5 /* AppDelegate.swift */; };
 		8BD31269253D2D8200670AC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BD31268253D2D8200670AC5 /* Assets.xcassets */; };
-		8BD3128C253D2DE000670AC5 /* MarketPriceVariationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31283253D2DE000670AC5 /* MarketPriceVariationResponse.swift */; };
-		8BD3128D253D2DE000670AC5 /* MarketPriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31284253D2DE000670AC5 /* MarketPriceResponse.swift */; };
-		8BD3128E253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31286253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift */; };
-		8BD3128F253D2DE000670AC5 /* FetchMarketPriceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31287253D2DE000670AC5 /* FetchMarketPriceUseCase.swift */; };
 		8BD31290253D2DE000670AC5 /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD31289253D2DE000670AC5 /* Double+String.swift */; };
 		8BD31291253D2DE000670AC5 /* BitcoinRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD3128B253D2DE000670AC5 /* BitcoinRouter.swift */; };
 		982C8BE62A24F67C006D3096 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BE52A24F67C006D3096 /* Constants.swift */; };
 		982C8BE82A2515B4006D3096 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BE72A2515B4006D3096 /* LaunchScreenViewController.swift */; };
 		982C8BEA2A2524E5006D3096 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BE92A2524E5006D3096 /* Builder.swift */; };
+		982C8BEC2A252913006D3096 /* GitHubRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BEB2A252913006D3096 /* GitHubRouter.swift */; };
+		982C8BEE2A252CC3006D3096 /* FetchUserListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BED2A252CC3006D3096 /* FetchUserListUseCase.swift */; };
+		982C8BF02A252D70006D3096 /* UserListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BEF2A252D70006D3096 /* UserListResponse.swift */; };
+		982C8BF22A2530AA006D3096 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BF12A2530AA006D3096 /* UserResponse.swift */; };
+		982C8BF42A2532BE006D3096 /* FetchUserDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BF32A2532BE006D3096 /* FetchUserDetailsUseCase.swift */; };
+		982C8BF62A253305006D3096 /* UserDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BF52A253305006D3096 /* UserDetailsResponse.swift */; };
+		982C8BF82A253560006D3096 /* UserRepositoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BF72A253560006D3096 /* UserRepositoriesResponse.swift */; };
+		982C8BFA2A25367B006D3096 /* UserRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982C8BF92A25367B006D3096 /* UserRepositoriesUseCase.swift */; };
 		98BDEC032A212006006FD4CA /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC022A212006006FD4CA /* UserListViewController.swift */; };
 		98BDEC052A2128C4006FD4CA /* UserListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC042A2128C4006FD4CA /* UserListBuilder.swift */; };
 		98BDEC072A212921006FD4CA /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BDEC062A212921006FD4CA /* UserListInteractor.swift */; };
@@ -74,15 +78,19 @@
 		8BD3125F253D2D8100670AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BD31268253D2D8200670AC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BD3126D253D2D8200670AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BD31283253D2DE000670AC5 /* MarketPriceVariationResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPriceVariationResponse.swift; sourceTree = "<group>"; };
-		8BD31284253D2DE000670AC5 /* MarketPriceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarketPriceResponse.swift; sourceTree = "<group>"; };
-		8BD31286253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMarketPriceVariationUseCase.swift; sourceTree = "<group>"; };
-		8BD31287253D2DE000670AC5 /* FetchMarketPriceUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchMarketPriceUseCase.swift; sourceTree = "<group>"; };
 		8BD31289253D2DE000670AC5 /* Double+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
 		8BD3128B253D2DE000670AC5 /* BitcoinRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitcoinRouter.swift; sourceTree = "<group>"; };
 		982C8BE52A24F67C006D3096 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		982C8BE72A2515B4006D3096 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		982C8BE92A2524E5006D3096 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		982C8BEB2A252913006D3096 /* GitHubRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRouter.swift; sourceTree = "<group>"; };
+		982C8BED2A252CC3006D3096 /* FetchUserListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserListUseCase.swift; sourceTree = "<group>"; };
+		982C8BEF2A252D70006D3096 /* UserListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListResponse.swift; sourceTree = "<group>"; };
+		982C8BF12A2530AA006D3096 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		982C8BF32A2532BE006D3096 /* FetchUserDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserDetailsUseCase.swift; sourceTree = "<group>"; };
+		982C8BF52A253305006D3096 /* UserDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsResponse.swift; sourceTree = "<group>"; };
+		982C8BF72A253560006D3096 /* UserRepositoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesResponse.swift; sourceTree = "<group>"; };
+		982C8BF92A25367B006D3096 /* UserRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoriesUseCase.swift; sourceTree = "<group>"; };
 		98BDEC022A212006006FD4CA /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
 		98BDEC042A2128C4006FD4CA /* UserListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListBuilder.swift; sourceTree = "<group>"; };
 		98BDEC062A212921006FD4CA /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
@@ -241,8 +249,10 @@
 		8BD31282253D2DE000670AC5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8BD31283253D2DE000670AC5 /* MarketPriceVariationResponse.swift */,
-				8BD31284253D2DE000670AC5 /* MarketPriceResponse.swift */,
+				982C8BEF2A252D70006D3096 /* UserListResponse.swift */,
+				982C8BF12A2530AA006D3096 /* UserResponse.swift */,
+				982C8BF52A253305006D3096 /* UserDetailsResponse.swift */,
+				982C8BF72A253560006D3096 /* UserRepositoriesResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,8 +260,9 @@
 		8BD31285253D2DE000670AC5 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				8BD31286253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift */,
-				8BD31287253D2DE000670AC5 /* FetchMarketPriceUseCase.swift */,
+				982C8BED2A252CC3006D3096 /* FetchUserListUseCase.swift */,
+				982C8BF32A2532BE006D3096 /* FetchUserDetailsUseCase.swift */,
+				982C8BF92A25367B006D3096 /* UserRepositoriesUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -259,10 +270,11 @@
 		8BD31288253D2DE000670AC5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8BD3128B253D2DE000670AC5 /* BitcoinRouter.swift */,
 				8BD31289253D2DE000670AC5 /* Double+String.swift */,
-				8BA64FC8253EB78D0001E473 /* String+Localizable.swift */,
 				8BA64FCB253EB9160001E473 /* DateFormatter+String.swift */,
 				8BA64FCF253EBA3D0001E473 /* Date+String.swift */,
+				8BA64FC8253EB78D0001E473 /* String+Localizable.swift */,
 				98BDEC192A215AB2006FD4CA /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
@@ -271,9 +283,9 @@
 		8BD3128A253D2DE000670AC5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8BD3128B253D2DE000670AC5 /* BitcoinRouter.swift */,
 				8BA33FE0253E5615001CB209 /* ApiClient.swift */,
 				8BA33FDD253E55EF001CB209 /* LocalRepository.swift */,
+				982C8BEB2A252913006D3096 /* GitHubRouter.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -550,12 +562,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BD3128C253D2DE000670AC5 /* MarketPriceVariationResponse.swift in Sources */,
+				982C8BF82A253560006D3096 /* UserRepositoriesResponse.swift in Sources */,
+				982C8BF42A2532BE006D3096 /* FetchUserDetailsUseCase.swift in Sources */,
+				982C8BF02A252D70006D3096 /* UserListResponse.swift in Sources */,
 				98BDEC092A212962006FD4CA /* UserListViewModel.swift in Sources */,
 				8BA64F93253E8CCF0001E473 /* DateValueFormatter.swift in Sources */,
+				982C8BEE2A252CC3006D3096 /* FetchUserListUseCase.swift in Sources */,
 				8BD31260253D2D8100670AC5 /* AppDelegate.swift in Sources */,
-				8BD3128E253D2DE000670AC5 /* FetchMarketPriceVariationUseCase.swift in Sources */,
 				982C8BE62A24F67C006D3096 /* Constants.swift in Sources */,
+				982C8BFA2A25367B006D3096 /* UserRepositoriesUseCase.swift in Sources */,
 				98BDEC112A214253006FD4CA /* UserDetailsViewController.swift in Sources */,
 				98BDEC1A2A215AB2006FD4CA /* UIColor+Extensions.swift in Sources */,
 				98BDEC182A2154D1006FD4CA /* UserDetailsRepositoriesCell.swift in Sources */,
@@ -563,19 +578,20 @@
 				8BD31291253D2DE000670AC5 /* BitcoinRouter.swift in Sources */,
 				98BDEC072A212921006FD4CA /* UserListInteractor.swift in Sources */,
 				8BA33FDE253E55EF001CB209 /* LocalRepository.swift in Sources */,
-				8BD3128D253D2DE000670AC5 /* MarketPriceResponse.swift in Sources */,
 				98BDEC152A21426B006FD4CA /* UserDetailsInteractor.swift in Sources */,
 				982C8BE82A2515B4006D3096 /* LaunchScreenViewController.swift in Sources */,
+				982C8BF62A253305006D3096 /* UserDetailsResponse.swift in Sources */,
 				8BA64FC9253EB78D0001E473 /* String+Localizable.swift in Sources */,
 				98BDEC132A21425F006FD4CA /* UserDetailsViewModel.swift in Sources */,
 				98BDEC032A212006006FD4CA /* UserListViewController.swift in Sources */,
 				98BDEC0C2A212C0F006FD4CA /* UserListCell.swift in Sources */,
 				8BA64FCC253EB9160001E473 /* DateFormatter+String.swift in Sources */,
-				8BD3128F253D2DE000670AC5 /* FetchMarketPriceUseCase.swift in Sources */,
 				8BD31290253D2DE000670AC5 /* Double+String.swift in Sources */,
 				982C8BEA2A2524E5006D3096 /* Builder.swift in Sources */,
 				8BA33FE1253E5615001CB209 /* ApiClient.swift in Sources */,
+				982C8BF22A2530AA006D3096 /* UserResponse.swift in Sources */,
 				98BDEC052A2128C4006FD4CA /* UserListBuilder.swift in Sources */,
+				982C8BEC2A252913006D3096 /* GitHubRouter.swift in Sources */,
 				8B7A82AD253FBAD5009C7188 /* AutoMockable.generated.swift in Sources */,
 				98BDEC0F2A21422C006FD4CA /* UserDetailsBuilder.swift in Sources */,
 			);

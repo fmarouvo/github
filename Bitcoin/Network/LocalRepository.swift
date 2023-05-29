@@ -14,55 +14,80 @@ final class LocalRepository {
     private let decoder = JSONDecoder()
     
     enum Keys: String {
-        case marketPrice
-        case marketPriceVariation
+        case userList
+        case userDetails
+        case userRepositories
     }
     
-    func saveMarketPrice(data: MarketPriceResponse) -> Single<MarketPriceResponse> {
-        clearMarketPriceRepository()
+    func saveUserList(data: UserListResponse) -> Single<UserListResponse> {
+        clearUserList()
         let data = try? encoder.encode(data)
-        UserDefaults.standard.set(data, forKey: Keys.marketPrice.rawValue)
-        return Single.just(fetchMarketPrice())
+        UserDefaults.standard.set(data, forKey: Keys.userList.rawValue)
+        return Single.just(fetchUserList())
     }
-    
-    func saveMarketPriceVariation(data: MarketPriceVariationResponse) -> Single<MarketPriceVariationResponse> {
-        clearMarketPriceVariationRepository()
+
+    func saveUserDetails(data: UserDetailsResponse) -> Single<UserDetailsResponse> {
+        clearUserDetails()
         let data = try? encoder.encode(data)
-        UserDefaults.standard.set(data, forKey: Keys.marketPriceVariation.rawValue)
-        return Single.just(fetchMarketPriceVariation())
+        UserDefaults.standard.set(data, forKey: Keys.userDetails.rawValue)
+        return Single.just(fetchUserDetails())
+    }
+
+    func saveUserRepositories(data: UserRepositoriesResponse) -> Single<UserRepositoriesResponse> {
+        clearUserRepositories()
+        let data = try? encoder.encode(data)
+        UserDefaults.standard.set(data, forKey: Keys.userRepositories.rawValue)
+        return Single.just(fetchUserRepositories())
     }
     
-    private func fetchMarketPrice() -> MarketPriceResponse {
-        if let data = UserDefaults.standard.data(forKey: Keys.marketPrice.rawValue) {
+    private func fetchUserList() -> UserListResponse {
+        if let data = UserDefaults.standard.data(forKey: Keys.userList.rawValue) {
             do {
-                let marketPrice = try decoder.decode(MarketPriceResponse.self, from: data)
-                return marketPrice
-            } catch {
-                print("Unable to Decode MarketPriceResponse (\(error))")
-            }
-        }
-        return MarketPriceResponse(marketPrice: 0, updatedAt: Date())
-    }
-    
-    private func fetchMarketPriceVariation() -> MarketPriceVariationResponse {
-        if let data = UserDefaults.standard.data(forKey: Keys.marketPriceVariation.rawValue) {
-            do {
-                let marketPriceVariation = try decoder.decode(MarketPriceVariationResponse.self, from: data)
-                return marketPriceVariation
+                let userList = try decoder.decode(UserListResponse.self, from: data)
+                return userList
             } catch {
                 print("Unable to Decode MarketPriceVariationResponse (\(error))")
             }
         }
-        return MarketPriceVariationResponse(marketPriceValues: [])
+        return UserListResponse(users: [])
+    }
+
+    private func fetchUserDetails() -> UserDetailsResponse {
+        if let data = UserDefaults.standard.data(forKey: Keys.userDetails.rawValue) {
+            do {
+                let userDetails = try decoder.decode(UserDetailsResponse.self, from: data)
+                return userDetails
+            } catch {
+                print("Unable to Decode MarketPriceVariationResponse (\(error))")
+            }
+        }
+        return UserDetailsResponse(login: "", id: 0, avatar_url: "", company: "", location: "")
+    }
+
+    private func fetchUserRepositories() -> UserRepositoriesResponse {
+        if let data = UserDefaults.standard.data(forKey: Keys.userRepositories.rawValue) {
+            do {
+                let userRepositories = try decoder.decode(UserRepositoriesResponse.self, from: data)
+                return userRepositories
+            } catch {
+                print("Unable to Decode MarketPriceVariationResponse (\(error))")
+            }
+        }
+        return UserRepositoriesResponse(name: "", description: "", updated_at: Date(), watchers: 0)
     }
     
-    private func clearMarketPriceRepository() {
-        UserDefaults.standard.removeObject(forKey: Keys.marketPrice.rawValue)
+    private func clearUserDetails() {
+        UserDefaults.standard.removeObject(forKey: Keys.userDetails.rawValue)
         UserDefaults.standard.synchronize()
     }
     
-    private func clearMarketPriceVariationRepository() {
-        UserDefaults.standard.removeObject(forKey: Keys.marketPriceVariation.rawValue)
+    private func clearUserList() {
+        UserDefaults.standard.removeObject(forKey: Keys.userList.rawValue)
+        UserDefaults.standard.synchronize()
+    }
+
+    private func clearUserRepositories() {
+        UserDefaults.standard.removeObject(forKey: Keys.userRepositories.rawValue)
         UserDefaults.standard.synchronize()
     }
     
