@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
 
-    func displayToast(_ message : String) {
+    func displayToast(_ message : String, isError: Bool) {
 
         guard let delegate = UIApplication.shared.delegate as? AppDelegate, let window = delegate.window else {
             return
@@ -19,7 +19,7 @@ extension UIView {
         }
 
         let toastView = UILabel()
-        toastView.backgroundColor = UIColor.black.withAlphaComponent(0.85)
+        toastView.backgroundColor = isError ? UIColor.red.withAlphaComponent(0.85) : UIColor.black.withAlphaComponent(0.85)
         toastView.textColor = UIColor.white
         toastView.textAlignment = .center
         toastView.font = UIFont(name: "Font-name", size: 17)

@@ -10,6 +10,6 @@ import Foundation
 struct UserRepositoriesResponse: Codable, Equatable {
     let name: String
     let description: String?
-    let updated_at: String? // "2023-05-07T20:51:28Z"
+    let updated_at: String?
     let watchers: Int?
 }

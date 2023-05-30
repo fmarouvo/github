@@ -32,9 +32,26 @@ class UserDetailsViewController: BaseViewController {
 
     private var userDetails: UserDetailsResponse? {
         didSet {
-            nameLabel.text = L10n.UserDetails.nameLabel(userDetails?.login ?? "")
-            companyLabel.text = L10n.UserDetails.companyLabel(userDetails?.company ?? "")
-            locationLabel.text = L10n.UserDetails.locationLabel(userDetails?.location ?? "")
+            if let name = userDetails?.login {
+                nameLabel.text = L10n.UserDetails.nameLabel(name)
+            } else {
+                nameLabel.text = L10n.UserDetails.nameLabel("Not Informed")
+                nameLabel.textColor = .lightGray
+            }
+
+            if let company = userDetails?.company {
+                companyLabel.text = L10n.UserDetails.companyLabel(company)
+            } else {
+                companyLabel.text = L10n.UserDetails.companyLabel("Not Informed")
+                companyLabel.textColor = .lightGray
+            }
+
+            if let location = userDetails?.location {
+                locationLabel.text = L10n.UserDetails.locationLabel(location)
+            } else {
+                locationLabel.text = L10n.UserDetails.locationLabel("Not Informed")
+                locationLabel.textColor = .lightGray
+            }
 
             if let company = userDetails?.company {
                 let companyArray = company.components(separatedBy: ",")
@@ -86,7 +103,9 @@ class UserDetailsViewController: BaseViewController {
         viewModel.output.onUserRepositoriesFetched
             .drive(onNext: { [weak self] userRepositories in
                 guard let self = self else { return }
-                self.userRepositories = userRepositories
+                self.userRepositories = userRepositories.sorted(by: {
+                    $0.updated_at ?? "" > $1.updated_at ?? ""
+                })
                 tableView.reloadData()
             }).disposed(by: disposeBag)
 
@@ -169,7 +188,7 @@ extension UserDetailsViewController: UITableViewDelegate {
         if let description = repository.description {
             message += "\(description)"
         }
-        view.displayToast(message)
+        view.displayToast(message, isError: false)
     }
 }
 
