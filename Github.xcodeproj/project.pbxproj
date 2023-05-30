@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C0FB1D8FCCA832FDC3B7666 /* Pods_Github.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040FFA6E406E5986F9929D0D /* Pods_Github.framework */; };
-		8B688D03253FB12600E25C9B /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B688D01253FB12600E25C9B /* HomeInteractorTests.swift */; };
-		8B688D04253FB12600E25C9B /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B688D02253FB12600E25C9B /* HomeViewModelTests.swift */; };
 		8B7A82AD253FBAD5009C7188 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A82AC253FBAD5009C7188 /* AutoMockable.generated.swift */; };
 		8BA33FDE253E55EF001CB209 /* LocalRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA33FDD253E55EF001CB209 /* LocalRepository.swift */; };
 		8BA33FE1253E5615001CB209 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA33FE0253E5615001CB209 /* ApiClient.swift */; };
@@ -74,8 +72,6 @@
 		7E95D8E1BAA9CEB7511C51BE /* Pods-GithubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubTests.debug.xcconfig"; path = "Target Support Files/Pods-GithubTests/Pods-GithubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B688CF1253FB0D900E25C9B /* GithubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B688CF5253FB0D900E25C9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B688D01253FB12600E25C9B /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
-		8B688D02253FB12600E25C9B /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		8B7A82AC253FBAD5009C7188 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		8BA33FDD253E55EF001CB209 /* LocalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		8BA33FE0253E5615001CB209 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -168,18 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				981142752A2629F7003A6403 /* UserDetails */,
-				8B688CFE253FB0FA00E25C9B /* Home */,
 			);
 			path = Scenes;
-			sourceTree = "<group>";
-		};
-		8B688CFE253FB0FA00E25C9B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				8B688D01253FB12600E25C9B /* HomeInteractorTests.swift */,
-				8B688D02253FB12600E25C9B /* HomeViewModelTests.swift */,
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		8B7A82AB253FBAD5009C7188 /* Generated */ = {
@@ -603,8 +589,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B688D03253FB12600E25C9B /* HomeInteractorTests.swift in Sources */,
-				8B688D04253FB12600E25C9B /* HomeViewModelTests.swift in Sources */,
 				981142792A262A33003A6403 /* UserDetailsViewModelTests.swift in Sources */,
 				981142772A262A0B003A6403 /* UserDetailsInteractorTests.swift in Sources */,
 			);
@@ -694,7 +678,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Github.app/Github";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fausto Teste.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fausto Teste";
 			};
 			name = Debug;
 		};
@@ -714,7 +698,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Github.app/Github";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fausto Teste.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fausto Teste";
 			};
 			name = Release;
 		};
