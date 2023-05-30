@@ -188,7 +188,7 @@ extension UserDetailsViewController: UITableViewDelegate {
         if let description = repository.description {
             message += "\(description)"
         }
-        view.displayToast(message)
+        view.displayToast(message, isError: false)
     }
 }
 

@@ -76,6 +76,6 @@ class BaseViewController: UIViewController {
 
     func handleError(_ error: Error, onConfirm: (() -> Void)? = nil) {
         dump(error)
-        view.displayToast(error.localizedDescription)
+        view.displayToast(error.localizedDescription, isError: true)
     }
 }

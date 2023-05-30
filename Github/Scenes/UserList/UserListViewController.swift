@@ -18,7 +18,11 @@ class UserListViewController: BaseViewController {
     private let emptyCellReuseIdentifier = "EmptyCell"
     private let viewModel: UserListViewModelType
 
-    private var userList: [UserResponse] = []
+    private var userList: [UserResponse] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     //MARK: - Initialization
     init(withViewModel viewModel: UserListViewModelType) {
@@ -55,9 +59,18 @@ class UserListViewController: BaseViewController {
         viewModel.output.isLoading
             .drive(isLoading)
             .disposed(by: disposeBag)
-        
+
         viewModel.output.error
             .drive(error)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.error
+            .drive(onNext: { [weak self] error in
+                guard let self = self else { return }
+                if self.userList.isEmpty {
+                    self.userList = [UserResponse(login: L10n.Common.TableView.emptyDataMessage, id: 0, avatar_url: "")]
+                }
+            })
             .disposed(by: disposeBag)
     }
 
