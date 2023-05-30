@@ -3,19 +3,18 @@
 
 platform :ios, '13.1'
 
-target 'Bitcoin' do
+target 'Github' do
 	# Comment the next line if you don't want to use dynamic frameworks
 	use_frameworks!
 
-	# Pods for Bitcoin
+	# Pods for Github
 	pod 'Alamofire'
 	pod 'RxAlamofire'
 	pod 'RxSwift'
 	pod 'RxCocoa'
-	pod 'Charts'
-	pod 'SkeletonView'
+  pod 'Kingfisher'
 
-	target 'BitcoinTests' do
+	target 'GithubTests' do
 		inherit! :search_paths
 		pod 'RxTest'
 		pod 'RxBlocking'

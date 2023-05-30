@@ -1,7 +1,7 @@
 sources:
-        - Bitcoin
+        - Github
 
 templates:
-        - Bitcoin/Templates
+        - Github/Templates
 
-output: Bitcoin/Generated
+output: Github/Generated
