@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "A33F4E84-D3F1-49E6-8AE6-90230201C97B",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Github.xcodeproj",
+      "identifier" : "8BD3125B253D2D8100670AC5",
+      "name" : "Github"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Github.xcodeproj",
+        "identifier" : "8B688CF0253FB0D900E25C9B",
+        "name" : "GithubTests"
+      }
+    }
+  ],
+  "version" : 1
+}
