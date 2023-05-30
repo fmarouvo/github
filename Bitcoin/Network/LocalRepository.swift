@@ -19,7 +19,7 @@ final class LocalRepository {
         case userRepositories
     }
     
-    func saveUserList(data: UserListResponse) -> Single<UserListResponse> {
+    func saveUserList(data: [UserResponse]) -> Single<[UserResponse]> {
         clearUserList()
         let data = try? encoder.encode(data)
         UserDefaults.standard.set(data, forKey: Keys.userList.rawValue)
@@ -33,23 +33,23 @@ final class LocalRepository {
         return Single.just(fetchUserDetails())
     }
 
-    func saveUserRepositories(data: UserRepositoriesResponse) -> Single<UserRepositoriesResponse> {
+    func saveUserRepositories(data: [UserRepositoriesResponse]) -> Single<[UserRepositoriesResponse]> {
         clearUserRepositories()
         let data = try? encoder.encode(data)
         UserDefaults.standard.set(data, forKey: Keys.userRepositories.rawValue)
         return Single.just(fetchUserRepositories())
     }
     
-    private func fetchUserList() -> UserListResponse {
+    private func fetchUserList() -> [UserResponse] {
         if let data = UserDefaults.standard.data(forKey: Keys.userList.rawValue) {
             do {
-                let userList = try decoder.decode(UserListResponse.self, from: data)
+                let userList = try decoder.decode([UserResponse].self, from: data)
                 return userList
             } catch {
                 print("Unable to Decode MarketPriceVariationResponse (\(error))")
             }
         }
-        return UserListResponse(users: [])
+        return []
     }
 
     private func fetchUserDetails() -> UserDetailsResponse {
@@ -64,16 +64,16 @@ final class LocalRepository {
         return UserDetailsResponse(login: "", id: 0, avatar_url: "", company: "", location: "")
     }
 
-    private func fetchUserRepositories() -> UserRepositoriesResponse {
+    private func fetchUserRepositories() -> [UserRepositoriesResponse] {
         if let data = UserDefaults.standard.data(forKey: Keys.userRepositories.rawValue) {
             do {
-                let userRepositories = try decoder.decode(UserRepositoriesResponse.self, from: data)
+                let userRepositories = try decoder.decode([UserRepositoriesResponse].self, from: data)
                 return userRepositories
             } catch {
                 print("Unable to Decode MarketPriceVariationResponse (\(error))")
             }
         }
-        return UserRepositoriesResponse(name: "", description: "", updated_at: Date(), watchers: 0)
+        return []
     }
     
     private func clearUserDetails() {

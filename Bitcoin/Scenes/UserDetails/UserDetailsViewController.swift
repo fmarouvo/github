@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class UserDetailsViewController: UIViewController {
 
@@ -18,14 +19,25 @@ class UserDetailsViewController: UIViewController {
     private let locationLabel = UILabel()
 
     private let cellReuseIdentifier = "userDetailsRepositoriesCell"
+    private let emptyCellReuseIdentifier = "EmptyCell"
 
     private let viewModel: UserDetailsViewModelType
+    private let disposeBag = DisposeBag()
 
-    private let repositories = ["Name One", "Name Two", "Name Three", "Name Four", "Name Five", "Name Six", "Name Seven", "Name Eight", "Name Nine", "Name Ten"]
+    private var userDetails: UserDetailsResponse? {
+        didSet {
+            nameLabel.text = L10n.UserDetails.nameLabel(userDetails?.login ?? "")
+            companyLabel.text = L10n.UserDetails.companyLabel(userDetails?.company ?? "")
+            locationLabel.text = L10n.UserDetails.locationLabel(userDetails?.location ?? "")
+        }
+    }
+    private var userRepositories: [UserRepositoriesResponse] = []
+    private var userLogin: String?
 
     //MARK: - Initialization
-    init(withViewModel viewModel: UserDetailsViewModelType) {
+    init(withViewModel viewModel: UserDetailsViewModelType, userLogin: String) {
         self.viewModel = viewModel
+        self.userLogin = userLogin
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -37,16 +49,37 @@ class UserDetailsViewController: UIViewController {
         super.viewDidLoad()
         prepareViews()
         setupConstraints()
+        prepareViewModel()
         prepareTableView()
+        fetchData()
     }
 
     //MARK: - Private Methods
+    private func prepareViewModel() {
+        viewModel.output.onUserDetailsFetched
+            .drive(onNext: { [weak self] userDetails in
+                guard let self = self else { return }
+                self.userDetails = userDetails
+            }).disposed(by: disposeBag)
+
+        viewModel.output.onUserRepositoriesFetched
+            .drive(onNext: { [weak self] userRepositories in
+                guard let self = self else { return }
+                self.userRepositories = userRepositories
+                tableView.reloadData()
+            }).disposed(by: disposeBag)
+    }
+
+    private func fetchData() {
+        if let userLogin = userLogin {
+            viewModel.input.fetchUserDetails.onNext(userLogin)
+            viewModel.input.fetchUserRepositories.onNext(userLogin)
+        }
+    }
+
     private func prepareViews() {
         view.addSubview(contentView)
-        navigationItem.title = "User Profile"
-        nameLabel.text = "User: Name user"
-        companyLabel.text = "Company: Company User"
-        locationLabel.text = "Location: Location, Lc"
+        navigationItem.title = L10n.UserDetails.NavigationItem.title
         contentView.addSubview(imageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(companyLabel)
@@ -95,6 +128,7 @@ class UserDetailsViewController: UIViewController {
 
     private func prepareTableView() {
         tableView.register(UserDetailsRepositoriesCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(EmptyCell.self, forCellReuseIdentifier: emptyCellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -104,7 +138,6 @@ class UserDetailsViewController: UIViewController {
 extension UserDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
-        navigationController?.pushViewController(UserDetailsBuilder().build(), animated: true)
     }
 }
 
@@ -115,14 +148,22 @@ extension UserDetailsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        repositories.count
+        userRepositories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if userRepositories[0].name == L10n.Common.TableView.emptyDataMessage {
+            if let cell: EmptyCell = tableView.dequeueReusableCell(withIdentifier: emptyCellReuseIdentifier) as? EmptyCell {
+                tableView.separatorStyle = .none
+                return cell
+            }
+        }
+
         if let cell: UserDetailsRepositoriesCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? UserDetailsRepositoriesCell {
-            cell.setupCell(text: repositories[indexPath.row])
+            cell.setupCell(repository: userRepositories[indexPath.row])
             return cell
         }
+
         return UITableViewCell()
     }
 }

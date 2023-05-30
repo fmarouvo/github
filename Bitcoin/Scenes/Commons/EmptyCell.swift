@@ -1,15 +1,20 @@
 //
-//  UserListCell.swift
+//  EmptyCell.swift
 //  Bitcoin
 //
-//  Created by Fausto Marouvo on 26/05/23.
+//  Created by Fausto Marouvo on 29/05/23.
 //
 
 import UIKit
 
-final class UserListCell: UITableViewCell {
+final class EmptyCell: UITableViewCell {
 
-    let label = UILabel()
+    let label = {
+        let label = UILabel()
+        label.text = "Data is Empty. Try again later."
+        label.textColor = .black
+        return label
+    }()
 
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -27,14 +32,11 @@ final class UserListCell: UITableViewCell {
 
     private func setupConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive.toggle()
-        label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive.toggle()
+        label.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive.toggle()
         label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive.toggle()
     }
 
     func setupCell(text: String) {
         backgroundColor = .clear
-        label.text = text
-        label.textColor = .black
     }
 }

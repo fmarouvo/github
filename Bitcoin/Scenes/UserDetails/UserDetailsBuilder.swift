@@ -9,16 +9,19 @@ import Foundation
 import UIKit
 
 protocol UserDetailsBuildable: AnyObject {
-    func build() -> UIViewController
+    func build(userLogin: String) -> UIViewController
 }
 
 final class UserDetailsBuilder: Builder, UserDetailsBuildable {
-    func build() -> UIViewController {
-        let interactor = UserDetailsInteractor()
+    func build(userLogin: String) -> UIViewController {
+        let interactor = UserDetailsInteractor(
+            fetchUserDetailsUseCase: FetchUserDetailsUseCaseImpl(),
+            fetchUserRepositoriesUseCase: FetchUserRepositoriesUseCaseImpl()
+        )
 
         let viewModel = UserDetailsViewModel(interactor: interactor)
 
-        let viewController = UserDetailsViewController(withViewModel: viewModel)
+        let viewController = UserDetailsViewController(withViewModel: viewModel, userLogin: userLogin)
 
         return viewController
     }

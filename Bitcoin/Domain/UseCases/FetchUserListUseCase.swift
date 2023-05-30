@@ -10,7 +10,7 @@ import RxSwift
 
 // sourcery: AutoMockable
 protocol FetchUserListUseCase {
-    func fetchUserListUseCase() -> Single<UserListResponse>
+    func fetchUserList() -> Single<[UserResponse]>
 }
 
 final class FetchUserListUseCaseImpl: FetchUserListUseCase {
@@ -18,10 +18,10 @@ final class FetchUserListUseCaseImpl: FetchUserListUseCase {
     let apiClient = ApiClient()
     let repository = LocalRepository()
 
-    func fetchUserListUseCase() -> Single<UserListResponse> {
-        apiClient.requestSingle(GitHubRouter.fetchUserList, type: UserListResponse.self)
-            .flatMap { user in
-                self.repository.saveUserList(data: user)
+    func fetchUserList() -> Single<[UserResponse]> {
+        apiClient.requestSingle(GitHubRouter.fetchUserList, type: [UserResponse].self)
+            .flatMap { userList in
+                self.repository.saveUserList(data: userList)
             }
     }
 

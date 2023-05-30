@@ -9,11 +9,20 @@ import Foundation
 import RxSwift
 
 // sourcery: AutoMockable
-protocol UserListInteractable: AnyObject {}
+protocol UserListInteractable: AnyObject {
+    func fetchUserList() -> Single<[UserResponse]>
+}
 
-final class UserListInteractor: UserListInteractable {
+final class UserListInteractor: UserListInteractable, FetchUserListUseCase {
 
-    init() {}
+    private let fetchUserListUseCase: FetchUserListUseCase
 
+    init(fetchUserListUseCase: FetchUserListUseCase) {
+        self.fetchUserListUseCase = fetchUserListUseCase
+    }
+
+    func fetchUserList() -> Single<[UserResponse]> {
+        fetchUserListUseCase.fetchUserList()
+    }
 
 }

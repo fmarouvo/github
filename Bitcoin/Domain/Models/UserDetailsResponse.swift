@@ -10,7 +10,7 @@ import Foundation
 struct UserDetailsResponse: Codable, Equatable {
     let login: String
     let id: Int
-    let avatar_url: String
-    let company: String
-    let location: String
+    let avatar_url: String?
+    let company: String?
+    let location: String?
 }

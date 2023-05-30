@@ -111,6 +111,7 @@ final class ApiClient {
                         }
                     case .failure(let error):
                         observer(.failure(self.onError(error, response: response)))
+                        print("APIClient Error: \(error)")
                     }
             }
             
@@ -136,9 +137,11 @@ final class ApiClient {
                             observer(.success(result))
                         } catch {
                             observer(.failure(self.onError(error, response: response)))
+                            print("APIClient Error: \(error)")
                         }
                     case .failure(let error):
                         observer(.failure(self.onError(error, response: response)))
+                        print("APIClient Error: \(error)")
                     }
             }
 
