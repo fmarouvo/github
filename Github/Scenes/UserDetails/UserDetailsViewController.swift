@@ -69,8 +69,21 @@ class UserDetailsViewController: BaseViewController {
             }
         }
     }
-    private var userRepositories: [UserRepositoriesResponse] = []
+
+    private var userRepositories: [UserRepositoriesResponse] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
     private var userLogin: String?
+    private let refreshControl = UIRefreshControl()
+    private var emptyUserRepositories = [UserRepositoriesResponse(
+        name: L10n.Common.TableView.emptyDataMessage,
+        description: nil,
+        updated_at: nil,
+        watchers: nil
+    )]
 
     //MARK: - Initialization
     init(withViewModel viewModel: UserDetailsViewModelType, userLogin: String) {
@@ -103,10 +116,15 @@ class UserDetailsViewController: BaseViewController {
         viewModel.output.onUserRepositoriesFetched
             .drive(onNext: { [weak self] userRepositories in
                 guard let self = self else { return }
+                self.refreshControl.endRefreshing()
                 self.userRepositories = userRepositories.sorted(by: {
                     $0.updated_at ?? "" > $1.updated_at ?? ""
                 })
-                tableView.reloadData()
+                if userRepositories.isEmpty {
+                    self.userRepositories = self.emptyUserRepositories
+                    return
+                }
+                self.tableView.reloadData()
             }).disposed(by: disposeBag)
 
         viewModel.output.isLoading
@@ -115,6 +133,16 @@ class UserDetailsViewController: BaseViewController {
 
         viewModel.output.error
             .drive(error)
+            .disposed(by: disposeBag)
+
+        viewModel.output.error
+            .drive(onNext: { [weak self] error in
+                guard let self = self else { return }
+                if self.userRepositories.isEmpty {
+                    self.userRepositories = self.emptyUserRepositories
+                }
+                self.refreshControl.endRefreshing()
+            })
             .disposed(by: disposeBag)
     }
 
@@ -177,6 +205,17 @@ class UserDetailsViewController: BaseViewController {
         tableView.register(EmptyCell.self, forCellReuseIdentifier: emptyCellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        if let userLogin = userLogin {
+            viewModel.input.fetchUserDetails.onNext(userLogin)
+            viewModel.input.fetchUserRepositories.onNext(userLogin)
+        }
     }
 }
 
@@ -218,4 +257,3 @@ extension UserDetailsViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
-
