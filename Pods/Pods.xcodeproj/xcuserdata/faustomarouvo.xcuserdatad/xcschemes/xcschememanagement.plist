@@ -14,12 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Bitcoin.xcscheme</key>
+		<key>Pods-Github.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-BitcoinTests.xcscheme</key>
+		<key>Pods-GithubTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

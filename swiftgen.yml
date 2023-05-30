@@ -1,6 +1,6 @@
 strings:
     inputs:
-        - Bitcoin/SupportFiles/en.lproj
+        - Github/SupportFiles/en.lproj
     outputs:
         - templateName: structured-swift5
-          output: Bitcoin/Generated/Strings+Generated.swift
+          output: Github/Generated/Strings+Generated.swift
