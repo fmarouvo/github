@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func prepareWindow(application: UIApplication) {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController = UINavigationController(rootViewController: UserListBuilder().build())
         window.rootViewController = LaunchScreenViewController()
         self.window = window
         self.application = application
