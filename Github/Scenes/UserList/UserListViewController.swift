@@ -17,6 +17,7 @@ class UserListViewController: BaseViewController {
     private let cellReuseIdentifier = "userListCell"
     private let emptyCellReuseIdentifier = "EmptyCell"
     private let viewModel: UserListViewModelType
+    private let refreshControl = UIRefreshControl()
 
     private var userList: [UserResponse] = [] {
         didSet {
@@ -48,6 +49,7 @@ class UserListViewController: BaseViewController {
         viewModel.output.onUserListFetched
             .drive(onNext: { [weak self] userListResponse in
                 guard let self = self else { return }
+                self.refreshControl.endRefreshing()
                 self.userList = userListResponse
                 if userListResponse.isEmpty {
                     self.userList = [UserResponse(login: L10n.Common.TableView.emptyDataMessage, id: 0, avatar_url: "")]
@@ -70,6 +72,7 @@ class UserListViewController: BaseViewController {
                 if self.userList.isEmpty {
                     self.userList = [UserResponse(login: L10n.Common.TableView.emptyDataMessage, id: 0, avatar_url: "")]
                 }
+                self.refreshControl.endRefreshing()
             })
             .disposed(by: disposeBag)
     }
@@ -108,6 +111,14 @@ class UserListViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = Constants.Size.medium
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+
+    @objc func refresh(_ sender: AnyObject) {
+        viewModel.input.fetchUserList.onNext(())
     }
 }
 
