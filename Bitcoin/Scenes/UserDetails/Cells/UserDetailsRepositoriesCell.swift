@@ -33,9 +33,9 @@ final class UserDetailsRepositoriesCell: UITableViewCell {
         label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive.toggle()
     }
 
-    func setupCell(text: String) {
+    func setupCell(repository: UserRepositoriesResponse) {
         backgroundColor = .clear
-        label.text = text
+        label.text = repository.name
         label.textColor = .black
     }
 }

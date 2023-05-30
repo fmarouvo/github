@@ -25,43 +25,110 @@ import RxSwift
 
 
 
-class FetchMarketPriceUseCaseMock: FetchMarketPriceUseCase {
+class FetchUserDetailsUseCaseMock: FetchUserDetailsUseCase {
 
-//MARK: - fetchMarketPriceUseCase
+//MARK: - fetchUserDetails
 
-var fetchMarketPriceUseCaseCallsCount = 0
-var fetchMarketPriceUseCaseCalled: Bool {
-return fetchMarketPriceUseCaseCallsCount > 0
+var fetchUserDetailsLoginCallsCount = 0
+var fetchUserDetailsLoginCalled: Bool {
+return fetchUserDetailsLoginCallsCount > 0
 }
-var fetchMarketPriceUseCaseReturnValue: Single<MarketPriceResponse>!
-var fetchMarketPriceUseCaseClosure: (() -> Single<MarketPriceResponse>)?
+var fetchUserDetailsLoginReceivedLogin: String?
+var fetchUserDetailsLoginReturnValue: Single<UserDetailsResponse>!
+var fetchUserDetailsLoginClosure: ((String) -> Single<UserDetailsResponse>)?
 
-func fetchMarketPriceUseCase() -> Single<MarketPriceResponse> {
-fetchMarketPriceUseCaseCallsCount += 1
-return fetchMarketPriceUseCaseClosure.map({ $0() }) ?? fetchMarketPriceUseCaseReturnValue
+func fetchUserDetails(login: String) -> Single<UserDetailsResponse> {
+fetchUserDetailsLoginCallsCount += 1
+fetchUserDetailsLoginReceivedLogin = login
+return fetchUserDetailsLoginClosure.map({ $0(login) }) ?? fetchUserDetailsLoginReturnValue
 }
 
 }
-class FetchMarketPriceVariationUseCaseMock: FetchMarketPriceVariationUseCase {
+class FetchUserListUseCaseMock: FetchUserListUseCase {
 
-//MARK: - fetchMarketPriceVariationUseCase
+//MARK: - fetchUserList
 
-var fetchMarketPriceVariationUseCaseCallsCount = 0
-var fetchMarketPriceVariationUseCaseCalled: Bool {
-return fetchMarketPriceVariationUseCaseCallsCount > 0
+var fetchUserListCallsCount = 0
+var fetchUserListCalled: Bool {
+return fetchUserListCallsCount > 0
 }
-var fetchMarketPriceVariationUseCaseReturnValue: Single<MarketPriceVariationResponse>!
-var fetchMarketPriceVariationUseCaseClosure: (() -> Single<MarketPriceVariationResponse>)?
+var fetchUserListReturnValue: Single<[UserResponse]>!
+var fetchUserListClosure: (() -> Single<[UserResponse]>)?
 
-func fetchMarketPriceVariationUseCase() -> Single<MarketPriceVariationResponse> {
-fetchMarketPriceVariationUseCaseCallsCount += 1
-return fetchMarketPriceVariationUseCaseClosure.map({ $0() }) ?? fetchMarketPriceVariationUseCaseReturnValue
+func fetchUserList() -> Single<[UserResponse]> {
+fetchUserListCallsCount += 1
+return fetchUserListClosure.map({ $0() }) ?? fetchUserListReturnValue
+}
+
+}
+class FetchUserRepositoriesUseCaseMock: FetchUserRepositoriesUseCase {
+
+//MARK: - fetchUserRepositories
+
+var fetchUserRepositoriesLoginCallsCount = 0
+var fetchUserRepositoriesLoginCalled: Bool {
+return fetchUserRepositoriesLoginCallsCount > 0
+}
+var fetchUserRepositoriesLoginReceivedLogin: String?
+var fetchUserRepositoriesLoginReturnValue: Single<[UserRepositoriesResponse]>!
+var fetchUserRepositoriesLoginClosure: ((String) -> Single<[UserRepositoriesResponse]>)?
+
+func fetchUserRepositories(login: String) -> Single<[UserRepositoriesResponse]> {
+fetchUserRepositoriesLoginCallsCount += 1
+fetchUserRepositoriesLoginReceivedLogin = login
+return fetchUserRepositoriesLoginClosure.map({ $0(login) }) ?? fetchUserRepositoriesLoginReturnValue
 }
 
 }
 class UserDetailsInteractableMock: UserDetailsInteractable {
 
+//MARK: - fetchUserDetails
+
+var fetchUserDetailsLoginCallsCount = 0
+var fetchUserDetailsLoginCalled: Bool {
+return fetchUserDetailsLoginCallsCount > 0
+}
+var fetchUserDetailsLoginReceivedLogin: String?
+var fetchUserDetailsLoginReturnValue: Single<UserDetailsResponse>!
+var fetchUserDetailsLoginClosure: ((String) -> Single<UserDetailsResponse>)?
+
+func fetchUserDetails(login: String) -> Single<UserDetailsResponse> {
+fetchUserDetailsLoginCallsCount += 1
+fetchUserDetailsLoginReceivedLogin = login
+return fetchUserDetailsLoginClosure.map({ $0(login) }) ?? fetchUserDetailsLoginReturnValue
+}
+
+//MARK: - fetchUserRepositories
+
+var fetchUserRepositoriesLoginCallsCount = 0
+var fetchUserRepositoriesLoginCalled: Bool {
+return fetchUserRepositoriesLoginCallsCount > 0
+}
+var fetchUserRepositoriesLoginReceivedLogin: String?
+var fetchUserRepositoriesLoginReturnValue: Single<[UserRepositoriesResponse]>!
+var fetchUserRepositoriesLoginClosure: ((String) -> Single<[UserRepositoriesResponse]>)?
+
+func fetchUserRepositories(login: String) -> Single<[UserRepositoriesResponse]> {
+fetchUserRepositoriesLoginCallsCount += 1
+fetchUserRepositoriesLoginReceivedLogin = login
+return fetchUserRepositoriesLoginClosure.map({ $0(login) }) ?? fetchUserRepositoriesLoginReturnValue
+}
+
 }
 class UserListInteractableMock: UserListInteractable {
+
+//MARK: - fetchUserList
+
+var fetchUserListCallsCount = 0
+var fetchUserListCalled: Bool {
+return fetchUserListCallsCount > 0
+}
+var fetchUserListReturnValue: Single<[UserResponse]>!
+var fetchUserListClosure: (() -> Single<[UserResponse]>)?
+
+func fetchUserList() -> Single<[UserResponse]> {
+fetchUserListCallsCount += 1
+return fetchUserListClosure.map({ $0() }) ?? fetchUserListReturnValue
+}
 
 }
