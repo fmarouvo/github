@@ -17,11 +17,11 @@ final class UserDetailsInteractorTests: XCTestCase {
     private var fetchUserDetailsUseCase: FetchUserDetailsUseCaseMock!
     private var fetchUserRepositoriesUseCase: FetchUserRepositoriesUseCaseMock!
     private var userDetailsResponseExpected: UserDetailsResponse!
-    private var userRepositoriesResponseExpected: UserRepositoriesResponse!
+    private var userRepositoriesResponseExpected: [UserRepositoriesResponse]!
 
     override func setUp() {
         super.setUp()
-        setupHomeInteractor()
+        setupUserDetailsInteractor()
         userDetailsResponseExpected = UserDetailsResponse(
             login: "login",
             id: 1,
@@ -29,19 +29,20 @@ final class UserDetailsInteractorTests: XCTestCase {
             company: "company",
             location: "location"
         )
-        userRepositoriesResponseExpected = UserRepositoriesResponse(
+        
+        userRepositoriesResponseExpected = [UserRepositoriesResponse(
             name: "name",
             description: "description",
             updated_at: "2023-05-07T20:51:28Z",
             watchers: 12
-        )
+        )]
     }
 
     override func tearDown() {
         super.tearDown()
     }
 
-    private func setupHomeInteractor() {
+    private func setupUserDetailsInteractor() {
         disposeBag = DisposeBag()
         fetchUserDetailsUseCase = FetchUserDetailsUseCaseMock()
         fetchUserRepositoriesUseCase = FetchUserRepositoriesUseCaseMock()
@@ -61,10 +62,10 @@ final class UserDetailsInteractorTests: XCTestCase {
     }
 
     func test_shouldFetchUserRepositories() {
-        fetchUserRepositoriesUseCase.fetchUserRepositoriesLoginReturnValue = Single.just([userRepositoriesResponseExpected])
+        fetchUserRepositoriesUseCase.fetchUserRepositoriesLoginReturnValue = Single.just(userRepositoriesResponseExpected)
         sut.fetchUserRepositories(login: userDetailsResponseExpected.login)
             .subscribe(onSuccess: { value in
-                XCTAssertEqual(value, [self.userRepositoriesResponseExpected])
+                XCTAssertEqual(value, self.userRepositoriesResponseExpected)
             })
             .disposed(by: disposeBag)
     }
