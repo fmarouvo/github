@@ -43,29 +43,33 @@ class BaseViewController: UIViewController {
     }
 
     func showLoading() {
-        add(loadingViewController)
-        loadingViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        loadingViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive.toggle()
-        loadingViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive.toggle()
-        loadingViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive.toggle()
-        loadingViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive.toggle()
+        if !isLoadingActive {
+            add(loadingViewController)
+            loadingViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            loadingViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive.toggle()
+            loadingViewController.view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive.toggle()
+            loadingViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive.toggle()
+            loadingViewController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive.toggle()
+            isLoadingActive = true
+        }
     }
 
     func hideLoading() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.loadingViewController.dismiss(animated: true) {
-                self.loadingViewController.remove()
+        if isLoadingActive {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.loadingViewController.dismiss(animated: true) {
+                    self.loadingViewController.remove()
+                    self.isLoadingActive = false
+                }
             }
         }
     }
 
     func loadingChanged(_ isLoading: Bool) {
-        if isLoading && !isLoadingActive {
+        if isLoading {
             view.endEditing(true)
-            isLoadingActive = true
             showLoading()
         } else {
-            isLoadingActive = false
             hideLoading()
         }
     }
