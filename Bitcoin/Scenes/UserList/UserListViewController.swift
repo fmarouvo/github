@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import RxSwift
 
-class UserListViewController: UIViewController {
+class UserListViewController: BaseViewController {
 
     //MARK: - Private variables
     private let scrollView = UIScrollView()
@@ -17,9 +16,7 @@ class UserListViewController: UIViewController {
 
     private let cellReuseIdentifier = "userListCell"
     private let emptyCellReuseIdentifier = "EmptyCell"
-    private let emptyCellMessage = "Data is empty. Try again later."
     private let viewModel: UserListViewModelType
-    private let disposeBag = DisposeBag()
 
     private var userList: [UserResponse] = []
 
@@ -37,23 +34,31 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
         prepareViews()
         setupConstraints()
-        prepareViewModel()
+        bindViewModel()
         prepareTableView()
         fetchData()
     }
 
     //MARK: - Private Methods
-    private func prepareViewModel() {
+    func bindViewModel() {
         viewModel.output.onUserListFetched
             .drive(onNext: { [weak self] userListResponse in
                 guard let self = self else { return }
                 self.userList = userListResponse
                 if userListResponse.isEmpty {
-                    self.userList = [UserResponse(login: emptyCellMessage, id: 0, avatar_url: "")]
+                    self.userList = [UserResponse(login: L10n.Common.TableView.emptyDataMessage, id: 0, avatar_url: "")]
                     return
                 }
                 self.tableView.reloadData()
             }).disposed(by: disposeBag)
+
+        viewModel.output.isLoading
+            .drive(isLoading)
+            .disposed(by: disposeBag)
+        
+        viewModel.output.error
+            .drive(error)
+            .disposed(by: disposeBag)
     }
 
     private func fetchData() {
@@ -62,7 +67,7 @@ class UserListViewController: UIViewController {
 
     private func prepareViews() {
         view.addSubview(contentView)
-        navigationItem.title = "User List"
+        navigationItem.title = L10n.UserList.NavigationItem.title
         contentView.addSubview(tableView)
 
         contentView.backgroundColor = Constants.Color.topBackground
@@ -89,15 +94,18 @@ class UserListViewController: UIViewController {
         tableView.register(EmptyCell.self, forCellReuseIdentifier: emptyCellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = Constants.Size.medium
     }
 }
 
 //MARK: - UITableViewDelegate
 extension UserListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-        navigationController?.pushViewController(UserDetailsBuilder().build(userLogin: userList[indexPath.row].login), animated: true)
+        navigationController?.pushViewController(
+            UserDetailsBuilder().build(userLogin: userList[indexPath.row].login), animated: true
+        )
     }
+
 }
 
 //MARK: - UITableViewDataSource
@@ -107,15 +115,19 @@ extension UserListViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if userList[0].login == emptyCellMessage {
-            if let cell: EmptyCell = tableView.dequeueReusableCell(withIdentifier: emptyCellReuseIdentifier) as? EmptyCell {
+        if userList[0].login == L10n.Common.TableView.emptyDataMessage {
+            if let cell: EmptyCell = tableView.dequeueReusableCell(
+                withIdentifier: emptyCellReuseIdentifier
+            ) as? EmptyCell {
                 tableView.separatorStyle = .none
                 return cell
             }
         }
 
-        if let cell: UserListCell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? UserListCell {
-            cell.setupCell(text: userList[indexPath.row].login)
+        if let cell: UserListCell = tableView.dequeueReusableCell(
+            withIdentifier: cellReuseIdentifier
+        ) as? UserListCell {
+            cell.setupCell(user: userList[indexPath.row])
             return cell
         }
         return UITableViewCell()

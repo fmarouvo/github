@@ -1,9 +1,6 @@
 PODS:
   - Alamofire (5.7.1)
-  - Charts (4.1.0):
-    - Charts/Core (= 4.1.0)
-  - Charts/Core (4.1.0):
-    - SwiftAlgorithms (~> 1.0)
+  - Kingfisher (7.7.0)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -19,44 +16,37 @@ PODS:
   - RxSwift (6.5.0)
   - RxTest (6.5.0):
     - RxSwift (= 6.5.0)
-  - SkeletonView (1.30.4)
-  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
-  - Charts
+  - Kingfisher
   - RxAlamofire
   - RxBlocking
   - RxCocoa
   - RxSwift
   - RxTest
-  - SkeletonView
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Charts
+    - Kingfisher
     - RxAlamofire
     - RxBlocking
     - RxCocoa
     - RxRelay
     - RxSwift
     - RxTest
-    - SkeletonView
-    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
-  Charts: 354f86803d11d9c35de280587fef50d1af063978
+  Kingfisher: f043ac666dfc96c1f37604f93effb45a7ee3a3e1
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxBlocking: 04b5fd28bb5ea49f7d64b80db8bbfe50d9cc1c7d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
-  SkeletonView: 5a050f6411e697abd4cda0a8d767013399dccd69
-  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 398ee452c058b4d79a2af9b70041a765016f125c
+PODFILE CHECKSUM: 4e399a19a151246b51c69bb3fcbbe222b8d8e3b6
 
 COCOAPODS: 1.12.1

@@ -62,12 +62,12 @@ class LaunchScreenViewController: UIViewController {
         imageView.heightAnchor.constraint(equalToConstant: Constants.Size.xxBig).isActive.toggle()
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.Size.medium).isActive.toggle()
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.Size.xSmall).isActive.toggle()
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive.toggle()
 
         creditsLabel.translatesAutoresizingMaskIntoConstraints = false
         creditsLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -Constants.Size.xBig).isActive.toggle()
-        creditsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Size.medium).isActive.toggle()
+        creditsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.Size.small).isActive.toggle()
     }
 
     func routeToUserList() {

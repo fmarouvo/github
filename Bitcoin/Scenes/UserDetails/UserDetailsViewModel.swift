@@ -17,6 +17,8 @@ protocol UserDetailsViewModelInput: AnyObject {
 protocol UserDetailsViewModelOutput: AnyObject {
     var onUserDetailsFetched: Driver<UserDetailsResponse> { get }
     var onUserRepositoriesFetched: Driver<[UserRepositoriesResponse]> { get }
+    var isLoading: Driver<Bool> { get }
+    var error: Driver<Error> { get }
 }
 
 protocol UserDetailsViewModelType: AnyObject {
@@ -28,18 +30,28 @@ class UserDetailsViewModel: UserDetailsViewModelType, UserDetailsViewModelInput,
 
     let onUserDetailsFetched: Driver<UserDetailsResponse>
     let onUserRepositoriesFetched: Driver<[UserRepositoriesResponse]>
+    let isLoading: Driver<Bool>
+    let error: Driver<Error>
 
     init(interactor: UserDetailsInteractable) {
+        let activityTracker = ActivityTracker()
+        let activityTrackerRepos = ActivityTracker()
+        isLoading = Driver.merge(activityTracker.asDriver(), activityTrackerRepos.asDriver())
 
-        onUserDetailsFetched = fetchUserDetails.asDriver(onErrorJustReturn: "")
+        let errorTracker = ErrorTracker()
+        let errorTrackerRepos = ErrorTracker()
+        error = Driver.merge(errorTracker.asDriver(), errorTrackerRepos.asDriver())
+        
+        onUserDetailsFetched = fetchUserDetails.asDriverOnErrorJustComplete()
             .flatMap { login in
                 interactor.fetchUserDetails(login: login)
-                    .asDriver(onErrorJustReturn: UserDetailsResponse(login: "", id: 0, avatar_url: "", company: "", location: ""))
+                    .asDriver(trackActivityWith: activityTracker, onErrorTrackWith: errorTracker)
             }
-        onUserRepositoriesFetched = fetchUserRepositories.asDriver(onErrorJustReturn: "")
+
+        onUserRepositoriesFetched = fetchUserRepositories.asDriverOnErrorJustComplete()
             .flatMap { login in
                 interactor.fetchUserRepositories(login: login)
-                    .asDriver(onErrorJustReturn: [])
+                    .asDriver(trackActivityWith: activityTrackerRepos, onErrorTrackWith: errorTrackerRepos)
             }
 
     }

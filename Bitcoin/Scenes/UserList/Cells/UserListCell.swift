@@ -9,7 +9,15 @@ import UIKit
 
 final class UserListCell: UITableViewCell {
 
-    let label = UILabel()
+    private let avatarView = {
+        let imageView = UIImageView()
+        imageView.image = Constants.Image.logoGitHub
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = Constants.Size.thin
+        return imageView
+    }()
+
+    private let label = UILabel()
 
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -17,6 +25,7 @@ final class UserListCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        addSubview(avatarView)
         addSubview(label)
         setupConstraints()
     }
@@ -26,15 +35,23 @@ final class UserListCell: UITableViewCell {
     }
 
     private func setupConstraints() {
+        avatarView.translatesAutoresizingMaskIntoConstraints = false
+        avatarView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: Constants.Size.xSmall).isActive.toggle()
+        avatarView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive.toggle()
+        avatarView.widthAnchor.constraint(equalToConstant: Constants.Size.small).isActive.toggle()
+        avatarView.heightAnchor.constraint(equalToConstant: Constants.Size.small).isActive.toggle()
+
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive.toggle()
-        label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive.toggle()
+        label.leadingAnchor.constraint(equalTo: avatarView.trailingAnchor, constant: Constants.Size.xSmall).isActive.toggle()
+        label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: Constants.Size.xSmall).isActive.toggle()
         label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive.toggle()
     }
 
-    func setupCell(text: String) {
+    func setupCell(user: UserResponse) {
         backgroundColor = .clear
-        label.text = text
+        label.text = user.login
         label.textColor = .black
+        let url = URL(string: user.avatar_url)
+        avatarView.kf.setImage(with: url)
     }
 }

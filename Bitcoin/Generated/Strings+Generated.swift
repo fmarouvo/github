@@ -29,9 +29,22 @@ internal enum L10n {
     internal static func nameLabel(_ p1: Any) -> String {
       return L10n.tr("Localizable", "UserDetails.NameLabel", String(describing: p1), fallback: "User: %@")
     }
+    /// Repositories
+    internal static let repositories = L10n.tr("Localizable", "UserDetails.Repositories", fallback: "Repositories")
+    /// Repository: %@\r
+    /// 
+    internal static func repository(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "UserDetails.Repository", String(describing: p1), fallback: "Repository: %@\r\n")
+    }
     internal enum NavigationItem {
       /// UserDetails
       internal static let title = L10n.tr("Localizable", "UserDetails.NavigationItem.title", fallback: "User Profile")
+    }
+  }
+  internal enum UserList {
+    internal enum NavigationItem {
+      /// UserList
+      internal static let title = L10n.tr("Localizable", "UserList.NavigationItem.Title", fallback: "User List")
     }
   }
 }

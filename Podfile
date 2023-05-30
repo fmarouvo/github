@@ -12,8 +12,7 @@ target 'Bitcoin' do
 	pod 'RxAlamofire'
 	pod 'RxSwift'
 	pod 'RxCocoa'
-	pod 'Charts'
-	pod 'SkeletonView'
+  pod 'Kingfisher'
 
 	target 'BitcoinTests' do
 		inherit! :search_paths

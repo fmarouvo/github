@@ -15,6 +15,8 @@ protocol UserListViewModelInput: AnyObject {
 
 protocol UserListViewModelOutput: AnyObject {
     var onUserListFetched: Driver<[UserResponse]> { get }
+    var isLoading: Driver<Bool> { get }
+    var error: Driver<Error> { get }
 }
 
 protocol UserListViewModelType: AnyObject {
@@ -25,13 +27,20 @@ protocol UserListViewModelType: AnyObject {
 class UserListViewModel: UserListViewModelType, UserListViewModelInput, UserListViewModelOutput {
 
     let onUserListFetched: Driver<[UserResponse]>
+    let isLoading: Driver<Bool>
+    let error: Driver<Error>
 
     init(interactor: UserListInteractable) {
+        let activityTracker = ActivityTracker()
+        isLoading = activityTracker.asDriver()
 
-        onUserListFetched = fetchUserList.asDriver(onErrorJustReturn: Void())
+        let errorTracker = ErrorTracker()
+        error = errorTracker.asDriver()
+
+        onUserListFetched = fetchUserList.asDriverOnErrorJustComplete()
             .flatMap { _ in
                 interactor.fetchUserList()
-                    .asDriver(onErrorJustReturn: [])
+                    .asDriver(trackActivityWith: activityTracker, onErrorTrackWith: errorTracker)
             }
 
     }
