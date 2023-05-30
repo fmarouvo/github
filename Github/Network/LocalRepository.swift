@@ -40,7 +40,7 @@ final class LocalRepository {
         return Single.just(fetchUserRepositories())
     }
     
-    private func fetchUserList() -> [UserResponse] {
+    func fetchUserList() -> [UserResponse] {
         if let data = UserDefaults.standard.data(forKey: Keys.userList.rawValue) {
             do {
                 let userList = try decoder.decode([UserResponse].self, from: data)
@@ -52,7 +52,7 @@ final class LocalRepository {
         return []
     }
 
-    private func fetchUserDetails() -> UserDetailsResponse {
+    func fetchUserDetails() -> UserDetailsResponse {
         if let data = UserDefaults.standard.data(forKey: Keys.userDetails.rawValue) {
             do {
                 let userDetails = try decoder.decode(UserDetailsResponse.self, from: data)
@@ -64,7 +64,7 @@ final class LocalRepository {
         return UserDetailsResponse(login: "", id: 0, avatar_url: "", company: "", location: "")
     }
 
-    private func fetchUserRepositories() -> [UserRepositoriesResponse] {
+    func fetchUserRepositories() -> [UserRepositoriesResponse] {
         if let data = UserDefaults.standard.data(forKey: Keys.userRepositories.rawValue) {
             do {
                 let userRepositories = try decoder.decode([UserRepositoriesResponse].self, from: data)
