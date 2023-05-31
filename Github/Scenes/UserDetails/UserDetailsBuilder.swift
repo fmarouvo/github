@@ -18,11 +18,8 @@ final class UserDetailsBuilder: Builder, UserDetailsBuildable {
             fetchUserDetailsUseCase: FetchUserDetailsUseCaseImpl(),
             fetchUserRepositoriesUseCase: FetchUserRepositoriesUseCaseImpl()
         )
-
         let viewModel = UserDetailsViewModel(interactor: interactor)
-
         let viewController = UserDetailsViewController(withViewModel: viewModel, userLogin: userLogin)
-
         return viewController
     }
 }

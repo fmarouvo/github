@@ -15,11 +15,8 @@ protocol UserListBuildable: AnyObject {
 final class UserListBuilder: Builder, UserListBuildable {
     func build() -> UIViewController {
         let interactor = UserListInteractor(fetchUserListUseCase: FetchUserListUseCaseImpl())
-
         let viewModel = UserListViewModel(interactor: interactor)
-
         let viewController = UserListViewController(withViewModel: viewModel)
-
         return viewController
     }
 }
