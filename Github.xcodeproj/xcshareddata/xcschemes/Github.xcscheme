@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BD3125B253D2D8100670AC5"
-               BuildableName = "Fausto Teste.app"
+               BuildableName = "Fausto GitHub.app"
                BlueprintName = "Github"
                ReferencedContainer = "container:Github.xcodeproj">
             </BuildableReference>
@@ -71,7 +71,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BD3125B253D2D8100670AC5"
-            BuildableName = "Fausto Teste.app"
+            BuildableName = "Fausto GitHub.app"
             BlueprintName = "Github"
             ReferencedContainer = "container:Github.xcodeproj">
          </BuildableReference>
@@ -88,7 +88,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BD3125B253D2D8100670AC5"
-            BuildableName = "Fausto Teste.app"
+            BuildableName = "Fausto GitHub.app"
             BlueprintName = "Github"
             ReferencedContainer = "container:Github.xcodeproj">
          </BuildableReference>
