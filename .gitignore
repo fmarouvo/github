@@ -1,3 +1,14 @@
+# Xcode
+#
+
+.DS_Store
+
+# Build generated
+#
+
+build/
+DerivedData/
+
 # Various settings
 #
 xcuserdata/
@@ -7,3 +18,18 @@ xcuserdata/
 
 Pods/
 Podfile.lock
+
+# Obj-C/Swift specific
+#
+
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Other
+# 
+
+*.xccheckout
+*.xcscmblueprint
+*.log
