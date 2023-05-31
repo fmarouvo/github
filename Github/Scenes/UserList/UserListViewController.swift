@@ -112,7 +112,7 @@ class UserListViewController: BaseViewController {
         tableView.dataSource = self
         tableView.rowHeight = Constants.Size.medium
 
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: L10n.Common.TableView.refreshControlMessage)
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }

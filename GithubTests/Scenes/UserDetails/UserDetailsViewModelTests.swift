@@ -5,7 +5,7 @@
 //  Created by Fausto Marouvo on 30/05/23.
 //
 
-@testable import Fausto_Teste
+@testable import Fausto_GitHub
 import RxCocoa
 import RxSwift
 import RxTest

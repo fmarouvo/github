@@ -24,5 +24,4 @@ final class UserListInteractor: UserListInteractable, FetchUserListUseCase {
     func fetchUserList() -> Single<[UserResponse]> {
         fetchUserListUseCase.fetchUserList()
     }
-
 }

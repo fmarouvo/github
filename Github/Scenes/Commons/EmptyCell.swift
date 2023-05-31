@@ -11,7 +11,7 @@ final class EmptyCell: UITableViewCell {
 
     let label = {
         let label = UILabel()
-        label.text = "Data is Empty. Try again later."
+        label.text = L10n.Common.TableView.emptyDataMessage
         label.textColor = .black
         return label
     }()

@@ -35,21 +35,21 @@ class UserDetailsViewController: BaseViewController {
             if let name = userDetails?.login {
                 nameLabel.text = L10n.UserDetails.nameLabel(name)
             } else {
-                nameLabel.text = L10n.UserDetails.nameLabel("Not Informed")
+                nameLabel.text = L10n.UserDetails.nameLabel(L10n.UserDetails.notInformed)
                 nameLabel.textColor = .lightGray
             }
 
             if let company = userDetails?.company {
                 companyLabel.text = L10n.UserDetails.companyLabel(company)
             } else {
-                companyLabel.text = L10n.UserDetails.companyLabel("Not Informed")
+                companyLabel.text = L10n.UserDetails.companyLabel(L10n.UserDetails.notInformed)
                 companyLabel.textColor = .lightGray
             }
 
             if let location = userDetails?.location {
                 locationLabel.text = L10n.UserDetails.locationLabel(location)
             } else {
-                locationLabel.text = L10n.UserDetails.locationLabel("Not Informed")
+                locationLabel.text = L10n.UserDetails.locationLabel(L10n.UserDetails.notInformed)
                 locationLabel.textColor = .lightGray
             }
 
@@ -206,7 +206,7 @@ class UserDetailsViewController: BaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: L10n.Common.TableView.refreshControlMessage)
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }

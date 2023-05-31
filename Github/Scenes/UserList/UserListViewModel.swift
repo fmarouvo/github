@@ -42,7 +42,6 @@ class UserListViewModel: UserListViewModelType, UserListViewModelInput, UserList
                 interactor.fetchUserList()
                     .asDriver(trackActivityWith: activityTracker, onErrorTrackWith: errorTracker)
             }
-
     }
 
     let fetchUserList: PublishSubject<Void> = PublishSubject()

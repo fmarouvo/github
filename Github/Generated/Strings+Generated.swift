@@ -11,10 +11,22 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
   internal enum Common {
+    internal enum Loading {
+      /// Please wait...
+      internal static let message = L10n.tr("Localizable", "Common.Loading.Message", fallback: "Please wait...")
+    }
     internal enum TableView {
       /// Common
       internal static let emptyDataMessage = L10n.tr("Localizable", "Common.TableView.EmptyDataMessage", fallback: "Data is empty. Try again later.")
+      /// Pull to refresh
+      internal static let refreshControlMessage = L10n.tr("Localizable", "Common.TableView.RefreshControlMessage", fallback: "Pull to refresh")
     }
+  }
+  internal enum LaunchScreen {
+    /// Fausto Castagnari Marouvo
+    internal static let credits = L10n.tr("Localizable", "LaunchScreen.Credits", fallback: "Fausto Castagnari Marouvo")
+    /// LaunchScreen
+    internal static let title = L10n.tr("Localizable", "LaunchScreen.Title", fallback: "GitHub")
   }
   internal enum UserDetails {
     /// Company: %@
@@ -29,6 +41,8 @@ internal enum L10n {
     internal static func nameLabel(_ p1: Any) -> String {
       return L10n.tr("Localizable", "UserDetails.NameLabel", String(describing: p1), fallback: "User: %@")
     }
+    /// Not Informed
+    internal static let notInformed = L10n.tr("Localizable", "UserDetails.NotInformed", fallback: "Not Informed")
     /// Repositories
     internal static let repositories = L10n.tr("Localizable", "UserDetails.Repositories", fallback: "Repositories")
     /// Repository: %@\r

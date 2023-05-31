@@ -26,6 +26,7 @@ final class Constants {
 
     class Image {
         static let logoGitHub = UIImage(named: "logoLaunchScreen")
+        static let watchersIcon = UIImage(named: "watchersIcon")
     }
 
     class Font {

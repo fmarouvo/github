@@ -22,7 +22,8 @@ final class FetchUserListUseCaseImpl: FetchUserListUseCase {
         apiClient.requestSingle(GitHubRouter.fetchUserList, type: [UserResponse].self)
             .flatMap { userList in
                 self.repository.saveUserList(data: userList)
+            }.catch { _ in
+                Single.just(self.repository.fetchUserList())
             }
     }
-
 }

@@ -7,12 +7,18 @@
 
 import UIKit
 import RxSwift
-
 import UIKit
 
 class LoadingViewController: UIViewController {
-    let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
-    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+
+    class Constants {
+        static let indicatorXAnchor = 10
+        static let indicatorYAnchor = 5
+        static let indicatorSizeAnchor = 50
+    }
+
+    let alert = UIAlertController(title: nil, message: L10n.Common.Loading.message, preferredStyle: .alert)
+    let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: Constants.indicatorXAnchor, y: Constants.indicatorYAnchor, width: Constants.indicatorSizeAnchor, height: Constants.indicatorSizeAnchor))
 
     override func viewDidLoad() {
         super.viewDidLoad()

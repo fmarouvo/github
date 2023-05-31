@@ -70,7 +70,7 @@
 		8BA33FDD253E55EF001CB209 /* LocalRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalRepository.swift; sourceTree = "<group>"; };
 		8BA33FE0253E5615001CB209 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		8BA64FBC253EB27F0001E473 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		8BD3125C253D2D8100670AC5 /* Fausto Teste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fausto Teste.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BD3125C253D2D8100670AC5 /* Fausto GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fausto GitHub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD3125F253D2D8100670AC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BD31268253D2D8200670AC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BD3126D253D2D8200670AC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,7 +168,6 @@
 		8B688CFD253FB0F000E25C9B /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				9838B73E2A2671F90035245E /* LaunchScreen */,
 				9838B7342A26431D0035245E /* UserList */,
 				981142752A2629F7003A6403 /* UserDetails */,
 			);
@@ -209,7 +208,7 @@
 		8BD3125D253D2D8100670AC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BD3125C253D2D8100670AC5 /* Fausto Teste.app */,
+				8BD3125C253D2D8100670AC5 /* Fausto GitHub.app */,
 				8B688CF1253FB0D900E25C9B /* GithubTests.xctest */,
 			);
 			name = Products;
@@ -234,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				982C8C022A255101006D3096 /* Commons */,
+				9838B73E2A2671F90035245E /* LaunchScreen */,
 				98BDEC0D2A214213006FD4CA /* UserDetails */,
 				98BDEC012A211FEF006FD4CA /* UserList */,
 			);
@@ -442,7 +442,7 @@
 			);
 			name = Github;
 			productName = "Bitcoin-Blockchain";
-			productReference = 8BD3125C253D2D8100670AC5 /* Fausto Teste.app */;
+			productReference = 8BD3125C253D2D8100670AC5 /* Fausto GitHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -713,7 +713,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fausto Teste.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fausto Teste";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fausto GitHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fausto GitHub";
 			};
 			name = Debug;
 		};
@@ -733,7 +733,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fausto Teste.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fausto Teste";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fausto GitHub.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Fausto GitHub";
 			};
 			name = Release;
 		};
@@ -865,7 +865,7 @@
 				DEVELOPMENT_TEAM = QWTPL888F5;
 				DISABLE_MANUAL_TARGET_ORDER_BUILD_WARNING = YES;
 				INFOPLIST_FILE = Github/SupportFiles/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Fausto Teste";
+				INFOPLIST_KEY_CFBundleDisplayName = "Fausto GitHub";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -873,7 +873,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.castagnari.Github;
-				PRODUCT_NAME = "Fausto Teste";
+				PRODUCT_NAME = "Fausto GitHub";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -895,7 +895,7 @@
 				DEVELOPMENT_TEAM = QWTPL888F5;
 				DISABLE_MANUAL_TARGET_ORDER_BUILD_WARNING = YES;
 				INFOPLIST_FILE = Github/SupportFiles/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Fausto Teste";
+				INFOPLIST_KEY_CFBundleDisplayName = "Fausto GitHub";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -903,7 +903,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.castagnari.Github;
-				PRODUCT_NAME = "Fausto Teste";
+				PRODUCT_NAME = "Fausto GitHub";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
