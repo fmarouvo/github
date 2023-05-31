@@ -8,7 +8,14 @@
 
 /* Common */
 "Common.TableView.EmptyDataMessage" = "Data is empty. Try again later.";
+"Common.TableView.RefreshControlMessage" = "Pull to refresh";
+"Common.Loading.Message" = "Please wait...";
 /* Common */
+
+/*LaunchScreen*/
+"LaunchScreen.Title" = "GitHub";
+"LaunchScreen.Credits" = "Fausto Castagnari Marouvo";
+/*LaunchScreen*/
 
 /* UserList*/
 "UserList.NavigationItem.Title" = "User List";
@@ -21,4 +28,5 @@
 "UserDetails.LocationLabel" = "Location: %@";
 "UserDetails.Repository" = "Repository: %@\r\n";
 "UserDetails.Repositories" = "Repositories";
+"UserDetails.NotInformed" = "Not Informed";
 /* UserDetails*/

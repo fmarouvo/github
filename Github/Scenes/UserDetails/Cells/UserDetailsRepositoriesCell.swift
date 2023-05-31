@@ -13,7 +13,7 @@ final class UserDetailsRepositoriesCell: UITableViewCell {
     let label = UILabel()
     let watcherImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "watchersIcon")
+        imageView.image = Constants.Image.watchersIcon
         return imageView
     }()
     let watchersLabel = UILabel()

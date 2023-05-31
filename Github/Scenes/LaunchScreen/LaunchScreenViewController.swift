@@ -17,14 +17,14 @@ class LaunchScreenViewController: UIViewController {
 
     private let titleLabel = {
         let label = UILabel()
-        label.text = "GitHub"
+        label.text = L10n.LaunchScreen.title
         label.textColor = .black
         return label
     }()
 
     let creditsLabel = {
         let label = UILabel()
-        label.text = "Fausto Castagnari Marouvo"
+        label.text = L10n.LaunchScreen.credits
         label.font = label.font.withSize(Constants.Font.small)
         label.textColor = .black
         return label
