@@ -21,10 +21,10 @@ DEPENDENCIES:
   - Alamofire
   - Kingfisher
   - RxAlamofire
-  - RxBlocking
-  - RxCocoa
-  - RxSwift
-  - RxTest
+  - RxBlocking (= 6.5.0)
+  - RxCocoa (= 6.5.0)
+  - RxSwift (= 6.5.0)
+  - RxTest (= 6.5.0)
 
 SPEC REPOS:
   trunk:
@@ -47,6 +47,6 @@ SPEC CHECKSUMS:
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   RxTest: eb2d23adefc5a5ebf5779c7792fa3edfe6ebcc17
 
-PODFILE CHECKSUM: 08785eca9d6cc772b7e0c93d2a1945250723a15c
+PODFILE CHECKSUM: c86acc63c8ec2f2fac1b26464bb9219a540949ff
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.14.2
