@@ -48,7 +48,7 @@ extension Single {
     }
 }
 
-extension ObservableType {
+extension RxObservableType {
     func asDriver(
         trackActivityWith activityTracker: ActivityTracker,
         onErrorTrackWith errorTracker: ErrorTracker

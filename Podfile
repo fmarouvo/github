@@ -12,14 +12,14 @@ target 'Github' do
 	# Pods for Github
 	pod 'Alamofire'
 	pod 'RxAlamofire'
-	pod 'RxSwift'
-	pod 'RxCocoa'
+  pod 'RxSwift', '6.5.0'
+  pod 'RxCocoa', '6.5.0'
   pod 'Kingfisher'
 
 	target 'GithubTests' do
 		inherit! :search_paths
-		pod 'RxTest'
-		pod 'RxBlocking'
+    pod 'RxBlocking', '6.5.0'
+    pod 'RxTest', '6.5.0'
 	end
 
   post_install do |installer|
